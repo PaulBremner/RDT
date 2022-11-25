@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.unityrosdemo.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "G:\\Unity_ws\\SARESE Sprint\\robot-digital-twin-interface\\digital-twin-usability\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "UnityROS-Demo [Testing]"
+        }
+      }
+    }
+  ]
+}

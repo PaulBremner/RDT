@@ -29,14 +29,19 @@ public class LaserTag : MonoBehaviour
 
     private void PointerClick(object sender, PointerEventArgs e)
     {
-        if(e.target.tag == "marker")//assuming all markers have the marker tag, if one is clicked
+        Transform handTransform = laserPointer.gameObject.transform;
+        Ray raycast = new Ray(handTransform.position, handTransform.forward);
+        RaycastHit hit;        
+        bool bHit = Physics.Raycast(raycast, out hit);
+
+        if (e.target.tag == "marker")//assuming all markers have the marker tag, if one is clicked
         {
             placedMarkers.Remove(e.target.gameObject);//remove it from the list TODO decide if a list of markers is needed
             Destroy(e.target.gameObject);//destroy it
         }
         else
         {
-            placedMarkers.Add(Instantiate(prefabs[(int)marker], e.hit.point, prefabs[(int)marker].transform.rotation));//TODO check if it spawns at the right height
+            placedMarkers.Add(Instantiate(prefabs[(int)marker], hit.point, prefabs[(int)marker].transform.rotation));//TODO check if it spawns at the right height
         }
     }
 

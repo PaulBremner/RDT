@@ -101,7 +101,7 @@ namespace Valve.VR.Extras
 
             Ray raycast = new Ray(transform.position, transform.forward);
             RaycastHit hit;
-            RaycastHit previousHit = new RaycastHit();
+            //RaycastHit previousHit = new RaycastHit();
             bool bHit = Physics.Raycast(raycast, out hit);
 
             if (previousContact && previousContact != hit.transform)
@@ -111,7 +111,7 @@ namespace Valve.VR.Extras
                 args.distance = 0f;
                 args.flags = 0;
                 args.target = previousContact;
-                args.hit = previousHit;
+                //args.hit = previousHit;
                 OnPointerOut(args);
                 previousContact = null;
             }
@@ -122,7 +122,7 @@ namespace Valve.VR.Extras
                 argsIn.distance = hit.distance;
                 argsIn.flags = 0;
                 argsIn.target = hit.transform;
-                argsIn.hit = hit;
+                //argsIn.hit = hit;
                 OnPointerIn(argsIn);
                 previousContact = hit.transform;
             }
@@ -142,7 +142,7 @@ namespace Valve.VR.Extras
                 argsClick.distance = hit.distance;
                 argsClick.flags = 0;
                 argsClick.target = hit.transform;
-                argsClick.hit = hit;
+                //argsClick.hit = hit;
                 OnPointerClick(argsClick);
             }
 
@@ -166,7 +166,7 @@ namespace Valve.VR.Extras
         public uint flags;
         public float distance;
         public Transform target;
-        public RaycastHit hit;
+        //public RaycastHit hit;
     }
 
     public delegate void PointerEventHandler(object sender, PointerEventArgs e);
